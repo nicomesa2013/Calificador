@@ -134,6 +134,7 @@ public class PnlTipo_de_pregunta extends javax.swing.JPanel {
 
     private void BtnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFinalizarActionPerformed
         // TODO add your handling code here:
+        (Pnl.getFrm()).cambiar_tarjeta("principal");
     }//GEN-LAST:event_BtnFinalizarActionPerformed
 
 
