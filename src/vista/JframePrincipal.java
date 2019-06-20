@@ -23,6 +23,7 @@ public class JframePrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         initComponents();
         pnlPrincipal1.setFrm(this);
+        pnlCrear_prueba1.setFrm(this);
     }
 
     public void cambiar_tarjeta(String tarjeta) {

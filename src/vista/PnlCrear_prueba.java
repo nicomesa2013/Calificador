@@ -12,7 +12,7 @@ import java.awt.CardLayout;
  * @author Daniela Chaux
  */
 public class PnlCrear_prueba extends javax.swing.JPanel {
-
+    private JframePrincipal Frm;
     /**
      * Creates new form PnlCrearprueba
      */
@@ -22,6 +22,15 @@ public class PnlCrear_prueba extends javax.swing.JPanel {
         pnlPregunta_cerrada1.setPnl(this);
         pnlPregunta_abierta1.setPnl(this);
     }
+
+    public JframePrincipal getFrm() {
+        return Frm;
+    }
+
+    public void setFrm(JframePrincipal Frm) {
+        this.Frm = Frm;
+    }
+    
     public void cambiar_tarjeta(String tarjeta) {
         ((CardLayout) pnlPreguntas.getLayout()).show(pnlPreguntas, tarjeta);
     }
@@ -37,15 +46,15 @@ public class PnlCrear_prueba extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        txtEnunciado = new javax.swing.JTextPane();
         pnlPreguntas = new javax.swing.JPanel();
         pnlTipo_de_pregunta1 = new vista.PnlTipo_de_pregunta();
         pnlPregunta_abierta1 = new vista.PnlPregunta_abierta();
         pnlPregunta_cerrada1 = new vista.PnlPregunta_cerrada();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Enunciado"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(txtEnunciado);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -94,10 +103,10 @@ public class PnlCrear_prueba extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
     private vista.PnlPregunta_abierta pnlPregunta_abierta1;
     private vista.PnlPregunta_cerrada pnlPregunta_cerrada1;
     private javax.swing.JPanel pnlPreguntas;
     private vista.PnlTipo_de_pregunta pnlTipo_de_pregunta1;
+    private javax.swing.JTextPane txtEnunciado;
     // End of variables declaration//GEN-END:variables
 }
