@@ -127,7 +127,7 @@ public class PnlPregunta_abierta extends javax.swing.JPanel {
         valor = txtValor.getText();
         ProfesorControlador profe = ProfesorControlador.getInstane();
         profe.guardarPrueba(pregunta);
-        //profe.guardarPrueba(valor);
+        profe.guardarPrueba(valor);
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
 

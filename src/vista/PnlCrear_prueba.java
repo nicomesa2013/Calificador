@@ -52,7 +52,6 @@ public class PnlCrear_prueba extends javax.swing.JPanel {
         pnlPregunta_abierta1 = new vista.PnlPregunta_abierta();
         pnlPregunta_cerrada1 = new vista.PnlPregunta_cerrada();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
 
         jScrollPane1.setViewportView(txtEnunciado);
 
