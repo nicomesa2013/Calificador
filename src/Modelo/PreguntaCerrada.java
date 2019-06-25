@@ -6,32 +6,38 @@
 
 package Modelo;
 
+import java.util.List;
+
 /**
  *
  * @author Estudiante
  */
-public class Pregunta_cerrada extends Pregunta{
-    private String respuesta[];
-    private String solucion[];
-    public Pregunta_cerrada(int numero, int valor, String enunciado, String respuesta[], String solucion[]) {
+public class PreguntaCerrada extends Pregunta{
+    private List<String> respuesta;
+    private boolean[] solucion = new boolean[4];//Respuesta correcta
+    public PreguntaCerrada(int numero, int valor, String enunciado, List<String> respuesta, boolean[] solucion) {
         super(numero, valor, enunciado);
         this.respuesta = respuesta;
         this.solucion = solucion;
     }
 
-    public String[] getRespuesta() {
+    public List<String> getRespuesta() {
         return respuesta;
     }
 
-    public void setRespuesta(String[] respuesta) {
+    public void setRespuesta(List<String> respuesta) {
         this.respuesta = respuesta;
     }
 
-    public String[] getSolucion() {
+    public boolean[] getSolucion() {
         return solucion;
     }
 
-    public void setSolucion(String[] solucion) {
+    public void setSolucion(boolean[] solucion) {
         this.solucion = solucion;
     }
+
+    
+
+    
 }

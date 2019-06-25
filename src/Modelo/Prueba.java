@@ -6,26 +6,42 @@
 
 package Modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Estudiante
  */
-public class Prueba {
-    private ArrayList <Pregunta> preguntas = new ArrayList();
+public class Prueba implements Serializable{
+    private List <Pregunta> preguntas ;
+    private String descripcion;
     
-    public Prueba(ArrayList<Pregunta> preguntas){
-        this.preguntas = preguntas;
+    public Prueba() {
+        this.preguntas = new ArrayList<>();
+    }
+    
+    
+    
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public ArrayList<Pregunta> getPreguntas() {
+    public List<Pregunta> getPreguntas() {
         return preguntas;
     }
 
-    public void setPreguntas(ArrayList<Pregunta> preguntas) {
+    public void setPreguntas(List<Pregunta> preguntas) {
         this.preguntas = preguntas;
     }
+
+    
     
     
     

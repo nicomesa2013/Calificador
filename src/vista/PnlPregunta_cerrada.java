@@ -5,6 +5,10 @@
  */
 package vista;
 
+import Controlador.ProfesorControlador;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Daniela Chaux
@@ -21,6 +25,19 @@ public class PnlPregunta_cerrada extends javax.swing.JPanel {
     
     public void setPnl(PnlCrear_prueba pnl){
         this.Pnl = pnl;
+    }
+    
+    public void limpiarCampos(){
+        txtEnunciado.setText("");
+        txtA.setText("");
+        txtB.setText("");
+        txtC.setText("");
+        txtD.setText("");
+        txtValor.setText("");
+        RBtnA.setSelected(false);
+        RBtnB.setSelected(false);
+        RBtnC.setSelected(false);
+        RBtnD.setSelected(false);
     }
 
     /**
@@ -52,7 +69,7 @@ public class PnlPregunta_cerrada extends javax.swing.JPanel {
         RBtnA = new javax.swing.JRadioButton();
         RBtnB = new javax.swing.JRadioButton();
         RBtnC = new javax.swing.JRadioButton();
-        RbtnD = new javax.swing.JRadioButton();
+        RBtnD = new javax.swing.JRadioButton();
         BtnAgregar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtEnunciado = new javax.swing.JTextField();
@@ -105,10 +122,10 @@ public class PnlPregunta_cerrada extends javax.swing.JPanel {
 
         RBtnC.setText("C.");
 
-        RbtnD.setText("D.");
-        RbtnD.addActionListener(new java.awt.event.ActionListener() {
+        RBtnD.setText("D.");
+        RBtnD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RbtnDActionPerformed(evt);
+                RBtnDActionPerformed(evt);
             }
         });
 
@@ -160,7 +177,7 @@ public class PnlPregunta_cerrada extends javax.swing.JPanel {
                         .addGap(30, 30, 30)
                         .addComponent(RBtnC)
                         .addGap(30, 30, 30)
-                        .addComponent(RbtnD)
+                        .addComponent(RBtnD)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                         .addComponent(BtnAgregar)))
                 .addContainerGap())
@@ -200,7 +217,7 @@ public class PnlPregunta_cerrada extends javax.swing.JPanel {
                     .addComponent(RBtnA)
                     .addComponent(RBtnB)
                     .addComponent(RBtnC)
-                    .addComponent(RbtnD)
+                    .addComponent(RBtnD)
                     .addComponent(BtnAgregar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -256,13 +273,30 @@ public class PnlPregunta_cerrada extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_RBtnBActionPerformed
 
-    private void RbtnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RbtnDActionPerformed
+    private void RBtnDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBtnDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RbtnDActionPerformed
+    }//GEN-LAST:event_RBtnDActionPerformed
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
         // TODO add your handling code here:
         Pnl.cambiar_tarjeta("Pregunta_principal");
+        String pregunta;
+        int valor;
+        pregunta = txtEnunciado.getText();
+        List <String> respuesta = new ArrayList();
+        boolean[] solucion = new boolean[4];
+        valor = Integer.parseInt(txtValor.getText().trim());
+        respuesta.add(txtA.getText());
+        respuesta.add(txtB.getText());
+        respuesta.add(txtC.getText());
+        respuesta.add(txtD.getText());
+        
+        solucion[0] = RBtnA.isSelected();
+        solucion[1] = RBtnB.isSelected();
+        solucion[2] = RBtnC.isSelected();
+        solucion[3] = RBtnD.isSelected();
+        
+        ProfesorControlador.getInstance().agregarPreguntaCerrada(pregunta, valor, respuesta, solucion);
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void txtCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCActionPerformed
@@ -279,7 +313,7 @@ public class PnlPregunta_cerrada extends javax.swing.JPanel {
     private javax.swing.JRadioButton RBtnA;
     private javax.swing.JRadioButton RBtnB;
     private javax.swing.JRadioButton RBtnC;
-    private javax.swing.JRadioButton RbtnD;
+    private javax.swing.JRadioButton RBtnD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

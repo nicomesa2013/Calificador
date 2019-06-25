@@ -110,7 +110,7 @@
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="RBtnC" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="RbtnD" min="-2" max="-2" attributes="0"/>
+                          <Component id="RBtnD" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="89" max="32767" attributes="0"/>
                           <Component id="BtnAgregar" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -159,7 +159,7 @@
                       <Component id="RBtnA" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="RBtnB" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="RBtnC" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="RbtnD" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="RBtnD" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="BtnAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -246,12 +246,12 @@
             <Property name="text" type="java.lang.String" value="C."/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="RbtnD">
+        <Component class="javax.swing.JRadioButton" name="RBtnD">
           <Properties>
             <Property name="text" type="java.lang.String" value="D."/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RbtnDActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBtnDActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnAgregar">

@@ -2,14 +2,15 @@
 package Modelo;
 
 
-public abstract class Pregunta {
+
+public  class Pregunta{
     private int numero; 
-    private int valor;
+    private int porcentaje;
     private String enunciado;
 
     public Pregunta(int numero, int valor, String enunciado) {
         this.numero = numero;
-        this.valor = valor;
+        this.porcentaje = valor;
         this.enunciado = enunciado;
     }
 
@@ -17,8 +18,8 @@ public abstract class Pregunta {
         return numero;
     }
 
-    public int getValor() {
-        return valor;
+    public int getPorcentaje() {
+        return porcentaje;
     }
 
     public String getEnunciado() {

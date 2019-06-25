@@ -22,6 +22,11 @@ public class PnlPregunta_abierta extends javax.swing.JPanel {
     public void setPnl(PnlCrear_prueba Pnl) {
         this.Pnl = Pnl;
     }
+    
+    public void limpiarCampos(){
+        txtEnunciado.setText("");
+        txtValor.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -122,12 +127,10 @@ public class PnlPregunta_abierta extends javax.swing.JPanel {
         // TODO add your handling code here:
         Pnl.cambiar_tarjeta("Pregunta_principal");
         String pregunta;
-        String valor;
+        int valor;
         pregunta = txtEnunciado.getText();
-        valor = txtValor.getText();
-        ProfesorControlador profe = ProfesorControlador.getInstane();
-        profe.guardarPrueba(pregunta);
-        profe.guardarPrueba(valor);
+        valor = Integer.parseInt(txtValor.getText().trim());
+        ProfesorControlador.getInstance().agregarPreguntaAbierta(pregunta, valor);
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
 
