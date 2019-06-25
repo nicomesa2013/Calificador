@@ -279,7 +279,6 @@ public class PnlPregunta_cerrada extends javax.swing.JPanel {
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
         // TODO add your handling code here:
-        Pnl.cambiar_tarjeta("Pregunta_principal");
         String pregunta;
         int valor;
         pregunta = txtEnunciado.getText();
@@ -297,6 +296,7 @@ public class PnlPregunta_cerrada extends javax.swing.JPanel {
         solucion[3] = RBtnD.isSelected();
         
         ProfesorControlador.getInstance().agregarPreguntaCerrada(pregunta, valor, respuesta, solucion);
+        Pnl.cambiar_tarjeta("Pregunta_principal");
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void txtCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCActionPerformed

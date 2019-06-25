@@ -8,11 +8,11 @@ import Modelo.PreguntaCerrada;
 import Modelo.Prueba;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 
 public class ProfesorControlador {
     private static ProfesorControlador instance;
-
     private ProfesorControlador() {
         //prueba = ArchivoControlador.getInstance().cargarPrueba();
     }
@@ -28,26 +28,39 @@ public class ProfesorControlador {
     private Prueba prueba = new Prueba();
     
     public void agregarPreguntaAbierta(String enunciado, int valor) {
-        int numero;
+        int numero, suma = 0;
         if (preguntas== null) {
             preguntas = new ArrayList<>();
             numero = 1;
         }
         else
             numero = preguntas.size() + 1;
+        
+        for(Pregunta pregunta: preguntas){
+            suma += pregunta.getPorcentaje();
+        }
+        while((suma + valor) > 100){
+           valor = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un porcentaje valido."));
+        }
         Pregunta pregunta = new Pregunta(numero, valor, enunciado);
         preguntas.add(pregunta);
         
     }
     
     public void agregarPreguntaCerrada(String enunciado, int valor, List<String> respuesta, boolean[] solucion) {
-        int numero; 
+        int numero, suma = 0; 
         if (preguntas == null) {
             preguntas = new ArrayList<>();
             numero = 1;
         }
-        else{
+        else
             numero = preguntas.size() + 1;
+        
+        for(Pregunta pregunta: preguntas){
+            suma += pregunta.getPorcentaje();
+        }
+        while((suma + valor) > 100){
+           valor = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un porcentaje valido."));
         }
 
         PreguntaCerrada pregunta = new PreguntaCerrada(numero, valor, enunciado, respuesta, solucion);
