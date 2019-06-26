@@ -1,9 +1,11 @@
 
 package Modelo;
 
+import java.io.Serializable;
 
 
-public  class Pregunta{
+
+public  class Pregunta implements Serializable{
     private int numero; 
     private int porcentaje;
     private String enunciado;

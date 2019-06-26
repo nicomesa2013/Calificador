@@ -6,8 +6,12 @@
 package vista;
 
 import Controlador.ProfesorControlador;
+import Excepciones.PorcentajeSuperadoException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -284,6 +288,7 @@ public class PnlPregunta_cerrada extends javax.swing.JPanel {
         pregunta = txtEnunciado.getText();
         List <String> respuesta = new ArrayList();
         boolean[] solucion = new boolean[4];
+        try{
         valor = Integer.parseInt(txtValor.getText().trim());
         respuesta.add(txtA.getText());
         respuesta.add(txtB.getText());
@@ -295,8 +300,18 @@ public class PnlPregunta_cerrada extends javax.swing.JPanel {
         solucion[2] = RBtnC.isSelected();
         solucion[3] = RBtnD.isSelected();
         
-        ProfesorControlador.getInstance().agregarPreguntaCerrada(pregunta, valor, respuesta, solucion);
-        Pnl.cambiar_tarjeta("Pregunta_principal");
+            ProfesorControlador.getInstance().agregarPreguntaCerrada(pregunta, valor, respuesta, solucion);
+            Pnl.cambiar_tarjeta("Pregunta_principal");
+        } catch (PorcentajeSuperadoException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+            txtValor.setText("");
+            txtValor.requestFocus();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Ingrese un valor entero");
+            txtValor.setText("");
+            txtValor.requestFocus();
+        }
+        
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
     private void txtCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCActionPerformed

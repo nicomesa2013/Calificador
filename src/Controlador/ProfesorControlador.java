@@ -3,6 +3,7 @@
 package Controlador;
 
 
+import Excepciones.PorcentajeSuperadoException;
 import Modelo.Pregunta;
 import Modelo.PreguntaCerrada;
 import Modelo.Prueba;
@@ -47,7 +48,8 @@ public class ProfesorControlador {
         
     }
     
-    public void agregarPreguntaCerrada(String enunciado, int valor, List<String> respuesta, boolean[] solucion) {
+    public void agregarPreguntaCerrada(String enunciado, int valor, List<String> respuesta, boolean[] solucion)
+            throws PorcentajeSuperadoException {
         int numero, suma = 0; 
         if (preguntas == null) {
             preguntas = new ArrayList<>();
@@ -59,10 +61,9 @@ public class ProfesorControlador {
         for(Pregunta pregunta: preguntas){
             suma += pregunta.getPorcentaje();
         }
-        while((suma + valor) > 100){
-           valor = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un porcentaje valido."));
+        if((suma + valor) > 100){
+            throw new PorcentajeSuperadoException("Ingrese un procentaje nuevo");
         }
-
         PreguntaCerrada pregunta = new PreguntaCerrada(numero, valor, enunciado, respuesta, solucion);
         preguntas.add(pregunta);
     }

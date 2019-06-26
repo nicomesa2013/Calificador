@@ -6,6 +6,8 @@
 package vista;
 
 import Controlador.ProfesorControlador;
+import java.text.ParseException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -128,9 +130,16 @@ public class PnlPregunta_abierta extends javax.swing.JPanel {
         String pregunta;
         int valor;
         pregunta = txtEnunciado.getText();
-        valor = Integer.parseInt(txtValor.getText().trim());
-        ProfesorControlador.getInstance().agregarPreguntaAbierta(pregunta, valor);
-        Pnl.cambiar_tarjeta("Pregunta_principal");
+        try{
+            valor = Integer.parseInt(txtValor.getText().trim());
+            ProfesorControlador.getInstance().agregarPreguntaAbierta(pregunta, valor);
+            Pnl.cambiar_tarjeta("Pregunta_principal");
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null,"Ingrese un valor numero en valor");
+            txtValor.setText("");
+            txtValor.requestFocus();
+        }
+       
     }//GEN-LAST:event_BtnAgregarActionPerformed
 
 
