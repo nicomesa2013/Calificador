@@ -6,6 +6,8 @@
 package Controlador;
 
 import Modelo.Prueba;
+import Modelo.PruebaEstudiante;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -34,7 +36,7 @@ public class ArchivoControlador {
         return instance;
     }
 
-    public Prueba cargarPrueba() {
+    public Prueba cargarPruebaP() {
         Prueba prueba = null;
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Examen.cad"))) {
             Object readObject = ois.readObject();
@@ -43,24 +45,29 @@ public class ArchivoControlador {
             }
         } catch (Exception ex) {
               System.out.println("Error al leer archivo: " + ex);
+              prueba = new Prueba();
         }
-
         return prueba;
     }
 
     public void guardarPrueba(Prueba prueba) {
-        //try {
             try (ObjectOutputStream ois = new ObjectOutputStream(new FileOutputStream("Examen.cad"))) {
             ois.writeObject(prueba);
             } catch (Exception ex) {
             Logger.getLogger(ArchivoControlador.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+    }
+    
+    public PruebaEstudiante cargarPruebaE(){
+        PruebaEstudiante pruebaEstudiante = null;
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File("C:\\Users\\Daniela Chaux\\Documents\\progra 4\\Calificador_Estudiante","SolucionExamen.cad")))) {
+            Object readObject = ois.readObject();
+            if (readObject != null && readObject instanceof PruebaEstudiante) {
+                pruebaEstudiante = ((PruebaEstudiante) readObject);
             }
-            
-            /*ObjectOutputStream ois = new ObjectOutputStream(new FileOutputStream("Examen.cad"));
-            ois.writeObject(prueba);
-            ois.close();
-        } catch (FileNotFoundException ex) {
-        Logger.getLogger(ArchivoControlador.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        } catch (Exception ex) {
+              System.out.println("Error al leer archivo: " + ex);
+        }
+        return pruebaEstudiante;
     }
 }

@@ -283,6 +283,7 @@ public class PnlPregunta_cerrada extends javax.swing.JPanel {
 
     private void BtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAgregarActionPerformed
         // TODO add your handling code here:
+        
         String pregunta;
         int valor;
         pregunta = txtEnunciado.getText();

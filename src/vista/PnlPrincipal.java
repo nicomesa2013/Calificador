@@ -106,14 +106,13 @@ public class PnlPrincipal extends javax.swing.JPanel {
 
     private void BtnCalificar_pruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCalificar_pruebaActionPerformed
         // TODO add your handling code here:
-        //frm.cambiar_tarjeta("");
+        frm.cambiar_tarjeta("Califica");
     }//GEN-LAST:event_BtnCalificar_pruebaActionPerformed
 
     private void BtnCrear_pruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCrear_pruebaActionPerformed
         // TODO add your handling code here:
-        //((CardLayout)PnlGeneral.getLayout()).show(PnlGeneral, "");
         frm.cambiar_tarjeta("prueba");
-
+        
     }//GEN-LAST:event_BtnCrear_pruebaActionPerformed
 
 

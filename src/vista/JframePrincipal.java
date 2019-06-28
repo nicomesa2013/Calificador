@@ -42,6 +42,7 @@ public class JframePrincipal extends javax.swing.JFrame {
         PnlGeneral = new javax.swing.JPanel();
         pnlPrincipal1 = new vista.PnlPrincipal();
         pnlCrear_prueba1 = new vista.PnlCrear_prueba();
+        pnlCalifica1 = new vista.PnlCalifica();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Docente");
@@ -50,6 +51,7 @@ public class JframePrincipal extends javax.swing.JFrame {
         PnlGeneral.setLayout(new java.awt.CardLayout());
         PnlGeneral.add(pnlPrincipal1, "principal");
         PnlGeneral.add(pnlCrear_prueba1, "prueba");
+        PnlGeneral.add(pnlCalifica1, "Califica");
 
         getContentPane().add(PnlGeneral);
 
@@ -95,6 +97,7 @@ public class JframePrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PnlGeneral;
+    private vista.PnlCalifica pnlCalifica1;
     private vista.PnlCrear_prueba pnlCrear_prueba1;
     private vista.PnlPrincipal pnlPrincipal1;
     // End of variables declaration//GEN-END:variables

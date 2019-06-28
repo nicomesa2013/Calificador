@@ -6,6 +6,7 @@
 
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,8 +14,13 @@ import java.util.List;
  * @author Estudiante
  */
 public class PreguntaCerrada extends Pregunta{
+    private static final long serialVersionUID = 18181813L;
     private List<String> respuesta;
     private boolean[] solucion = new boolean[4];//Respuesta correcta
+    public PreguntaCerrada(){
+        super();
+        this.respuesta = new ArrayList();
+    }
     public PreguntaCerrada(int numero, int valor, String enunciado, List<String> respuesta, boolean[] solucion) {
         super(numero, valor, enunciado);
         this.respuesta = respuesta;

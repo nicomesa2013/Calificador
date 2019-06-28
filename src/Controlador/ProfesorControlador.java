@@ -7,6 +7,7 @@ import Excepciones.PorcentajeSuperadoException;
 import Modelo.Pregunta;
 import Modelo.PreguntaCerrada;
 import Modelo.Prueba;
+import Modelo.PruebaEstudiante;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -15,7 +16,9 @@ import javax.swing.JOptionPane;
 public class ProfesorControlador {
     private static ProfesorControlador instance;
     private ProfesorControlador() {
-        //prueba = ArchivoControlador.getInstance().cargarPrueba();
+        pruebaEstudiante = ArchivoControlador.getInstance().cargarPruebaE();
+        prueba = ArchivoControlador.getInstance().cargarPruebaP();
+        //prueba = new Prueba();
     }
     
     public static ProfesorControlador getInstance() {
@@ -26,7 +29,16 @@ public class ProfesorControlador {
     }
     
     private List<Pregunta> preguntas;
-    private Prueba prueba = new Prueba();
+    private Prueba prueba ;
+    private PruebaEstudiante pruebaEstudiante;
+
+    public PruebaEstudiante getPruebaEstudiante() {
+        return pruebaEstudiante;
+    }
+
+    public Prueba getPrueba() {
+        return prueba;
+    }
     
     public void agregarPreguntaAbierta(String enunciado, int valor) {
         int numero, suma = 0;
@@ -50,6 +62,7 @@ public class ProfesorControlador {
     
     public void agregarPreguntaCerrada(String enunciado, int valor, List<String> respuesta, boolean[] solucion)
             throws PorcentajeSuperadoException {
+        
         int numero, suma = 0; 
         if (preguntas == null) {
             preguntas = new ArrayList<>();
@@ -69,13 +82,20 @@ public class ProfesorControlador {
     }
     
     public void agregarDescripcion(String descripcion){
+        if(prueba == null){
+            prueba = new Prueba();
+        }
         prueba.setDescripcion(descripcion);
     }
     
     public void guardarPruebaArchivo(){
+        if(prueba == null){
+            prueba = new Prueba();
+        }
         prueba.setPreguntas(preguntas);
         ArchivoControlador.getInstance().guardarPrueba(prueba);
     }
+    
     
     
     
